@@ -49,3 +49,26 @@ export function caesarCipher(str, shift) {
     .map((char) => shiftChar(char, shift))
     .join("");
 }
+
+export function analyzeArray(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return {
+      average: NaN,
+      min: NaN,
+      max: NaN,
+      length: 0,
+    };
+  }
+
+  const sum = arr.reduce((acc, num) => acc + num, 0);
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  const average = sum / arr.length;
+
+  return {
+    average,
+    min,
+    max,
+    length: arr.length,
+  };
+}
